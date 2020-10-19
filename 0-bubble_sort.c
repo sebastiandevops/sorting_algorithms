@@ -30,13 +30,13 @@ void bubble_sort(const int *array, size_t size)
 					j = 0;
 					while (arri && j < size)
 					{
-						if (j > 0)
-						{
-							_putchar(',');
-							_putchar(' ');
-						}
-						print_number(arri[j]);
-						++j;
+					if (j > 0)
+					{
+						_putchar(',');
+						_putchar(' ');
+					}
+					print_number(arri[j]);
+					++j;
 					}
 					_putchar('\n');
 				}
