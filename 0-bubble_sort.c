@@ -16,27 +16,30 @@ void bubble_sort(const int *array, size_t size)
 	int temp;
 	int *arri = (int *)array;
 
-	for (step = 0; step < size - 1; ++step)
+	if (size > 1)
 	{
-		for (i = 0; i < size - step - 1; ++i)
+		for (step = 0; step < size - 1; ++step)
 		{
-			if (array[i] > array[i + 1])
+			for (i = 0; i < size - step - 1; ++i)
 			{
-				temp = array[i];
-				arri[i] = array[i + 1];
-				arri[i + 1] = temp;
-				j = 0;
-				while (arri && j < size)
+				if (array[i] > array[i + 1])
 				{
-					if (j > 0)
+					temp = array[i];
+					arri[i] = array[i + 1];
+					arri[i + 1] = temp;
+					j = 0;
+					while (arri && j < size)
 					{
-						_putchar(',');
-						_putchar(' ');
+						if (j > 0)
+						{
+							_putchar(',');
+							_putchar(' ');
+						}
+						print_number(arri[j]);
+						++j;
 					}
-					print_number(arri[j]);
-					++j;
+					_putchar('\n');
 				}
-				_putchar('\n');
 			}
 		}
 	}
