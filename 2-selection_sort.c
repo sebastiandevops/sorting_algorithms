@@ -22,17 +22,19 @@ void selection_sort(int *array, size_t size)
 	{
 		min_idx = i;
 		for (j = i + 1; j < size; j++)
-		  if (array[j] < array[min_idx])
-			min_idx = j;
+			if (array[j] < array[min_idx])
+				min_idx = j;
 		swap(&array[min_idx], &array[i]);
 		k = 0;
 		while (array && k < size)
 		{
 			if (k > 0)
+			{
 				_putchar(',');
+				_putchar(' ');
+			}
 			print_number(array[k]);
-			_putchar(' ');
-			++k;
+			k++;
 		}
 		_putchar('\n');
 	}
