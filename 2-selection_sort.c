@@ -18,25 +18,28 @@ void selection_sort(int *array, size_t size)
 	size_t min_idx;
 	size_t k;
 
-	for (i = 0; i < size - 1; i++)
+	if (size > 1)
 	{
-		min_idx = i;
-		for (j = i + 1; j < size; j++)
-			if (array[j] < array[min_idx])
-				min_idx = j;
-		swap(&array[min_idx], &array[i]);
-		k = 0;
-		while (array && k < size)
+		for (i = 0; i < size - 1; i++)
 		{
-			if (k > 0)
+			min_idx = i;
+			for (j = i + 1; j < size; j++)
+				if (array[j] < array[min_idx])
+					min_idx = j;
+			swap(&array[min_idx], &array[i]);
+			k = 0;
+			while (array && k < size)
 			{
-				_putchar(',');
-				_putchar(' ');
+				if (k > 0)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
+				print_number(array[k]);
+				k++;
 			}
-			print_number(array[k]);
-			k++;
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 }
 
@@ -50,9 +53,9 @@ void selection_sort(int *array, size_t size)
  */
 void swap(int *xp, int *yp)
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
 }
 
 /**
@@ -114,4 +117,3 @@ void print_number(int n)
 		}
 	}
 }
-
