@@ -1,45 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "sort.h"
 
-int _putchar(char c);
 /**
- * bubble_sort - function that sorts an array of integers in ascending
- * order using the Bubble sort algorithm
+ * selection_sort - sorts an array of integers in ascending
+ * order using the Selection sort algorithm
  *
- * @array: The array to be sorted
- * @size: Number of elements in @array
+ * @array: array to be sorted.
+ * @size: Size of the array
+ *
+ * Return: void.
  */
-void bubble_sort(const int *array, size_t size)
+void selection_sort(int *array, size_t size)
 {
-	size_t step;
 	size_t i;
-	size_t j = 0;
-	int temp;
-	int *arri = (int *)array;
+	size_t j;
+	size_t min_idx;
+	size_t k;
 
-	for (step = 0; step < size - 1; ++step)
+	for (i = 0; i < size - 1; i++)
 	{
-		for (i = 0; i < size - step - 1; ++i)
+		min_idx = i;
+		for (j = i + 1; j < size; j++)
+		  if (array[j] < array[min_idx])
+			min_idx = j;
+		swap(&array[min_idx], &array[i]);
+		k = 0;
+		while (array && k < size)
 		{
-			if (array[i] > array[i + 1])
-			{
-				temp = array[i];
-				arri[i] = array[i + 1];
-				arri[i + 1] = temp;
-				j = 0;
-				while (arri && j < size)
-				{
-					if (j > 0)
-					{
-						_putchar(',');
-						_putchar(' ');
-					}
-					print_number(arri[j]);
-					++j;
-				}
-				_putchar('\n');
-			}
+			if (k > 0)
+				_putchar(',');
+			print_number(array[k]);
+			_putchar(' ');
+			++k;
 		}
+		_putchar('\n');
 	}
+}
+
+/**
+ * swap - function that swap elements
+ *
+ * @xp: element to be swaped.
+ * @yp: element to be swaped.
+ *
+ * Return: void.
+ */
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
 }
 
 /**
@@ -101,3 +112,4 @@ void print_number(int n)
 		}
 	}
 }
+
