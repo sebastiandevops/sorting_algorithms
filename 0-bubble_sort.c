@@ -16,8 +16,7 @@ void bubble_sort(const int *array, size_t size)
 	int temp;
 	int *arri = (int *)array;
 
-	if (size <= 1)
-		return;
+	if (size > 1)
 	{
 		for (step = 0; step < size; ++step)
 		{
@@ -44,6 +43,8 @@ void bubble_sort(const int *array, size_t size)
 			}
 		}
 	}
+	else
+		return;
 }
 
 /**
