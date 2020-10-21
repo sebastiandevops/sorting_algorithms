@@ -3,49 +3,69 @@
 #include "sort.h"
 
 /**
- * selection_sort - sorts an array of integers in ascending
- * order using the Selection sort algorithm
+ * quick_sort - sorts an array of integers in ascending order
+ * using the Quick sort algorithm
  *
  * @array: array to be sorted.
  * @size: Size of the array
  *
  * Return: void.
  */
-void selection_sort(int *array, size_t size)
+void quick_sort(int *array, size_t size)
 {
-	size_t i;
-	size_t j;
-	size_t min_idx;
-	size_t k;
+	size_t low = 0;
 
-	if (size > 1)
+	quickSort(array, low, size - 1);
+}
+
+/**
+ * partition - partition the array on the basis of pivot element
+ *
+ * @array: array to be sorted.
+ * @low: left most Index
+ * @high: Right most Index
+ *
+ * Return: void.
+ */
+int partition(int array[], int low, int high)
+{
+	int pivot = array[high];
+	int i = (low - 1);
+	int j;
+
+	for (j = low; j < high; j++)
 	{
-		for (i = 0; i < size - 2; i++)
+		if (array[j] <= pivot)
 		{
-			min_idx = i;
-			for (j = i + 1; j < size; j++)
-			{
-				if (array[j] < array[min_idx])
-					min_idx = j;
-			}
-			if (&array[min_idx] != &array[i])
-			{
-				swap(&array[min_idx], &array[i]);
-				k = 0;
-				while (array && k < size)
-				{
-					if (k > 0)
-					{
-						_putchar(',');
-						_putchar(' ');
-					}
-					print_number(array[k]);
-					k++;
-				}
-				_putchar('\n');
-			}
+			i++;
+			swap(&array[i], &array[j]);
 		}
 	}
+	swap(&array[i + 1], &array[high]);
+	return (i + 1);
+}
+
+/**
+ * quickSort - sorts an array of integers in ascending
+ * order using the Selection sort algorithm
+ *
+ * @array: array to be sorted.
+ * @low: left most Index
+ * @high: Right most Index
+ *
+ * Return: void.
+ */
+void quickSort(int array[], int low, int high)
+{
+	int pi;
+
+	if (low < high)
+	{
+		pi = partition(array, low, high);
+		quickSort(array, low, pi - 1);
+		quickSort(array, pi + 1, high);
+	}
+
 }
 
 /**
@@ -62,6 +82,7 @@ void swap(int *xp, int *yp)
 	*xp = *yp;
 	*yp = temp;
 }
+
 
 /**
  * _putchar - writes the character c to stdout
