@@ -3,8 +3,8 @@
 #include "sort.h"
 
 /**
- * selection_sort - sorts an array of integers in ascending
- * order using the Selection sort algorithm
+ * counting_sort - sorts an array of integers in ascending
+ * order using the Counting sort algorithm
  *
  * @array: array to be sorted.
  * @size: Size of the array
