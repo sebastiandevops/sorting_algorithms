@@ -45,7 +45,7 @@ void heap_sort(int *array, size_t size)
 /**
  * heapify - Find largest among root, left child and right child.
  *
- * @array: array to be checked.
+ * @arr: array to be checked.
  * @n: Size of the array
  * @i: index.
  * Return: void.
