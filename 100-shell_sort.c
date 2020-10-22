@@ -33,18 +33,6 @@ void shell_sort(int *array, size_t size)
 			array[j] = temp;
 		}
 		gap = (gap - 1) / 3;
-		k = 0;
-		while (array && k < size)
-		{
-			if (k > 0)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			print_number(array[k]);
-			k++;
-		}
-		_putchar('\n');
 	}
 }
 
