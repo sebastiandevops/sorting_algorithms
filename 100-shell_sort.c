@@ -13,24 +13,38 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t gap;
-	size_t i, j;
+	size_t gap = 1;
+	size_t i, j, k;
 	int temp;
 
-	gap = 1;
-	while (gap < size)
+	while (gap < size / 3)
+	{
+		gap = gap * 3 + 1;
+	}
+	while (gap > 0)
 	{
 		for (i = gap; i < size; i += 1)
 		{
 			temp = array[i];
-			for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
+			for (j = i; j > gap - 1 && array[j - gap] > temp; j -= gap)
 			{
 				array[j] = array[j - gap];
 			}
-			if (array[j] != temp)
-				array[j] = temp;
+			array[j] = temp;
 		}
-		gap = (gap * 3) + 1;
+		gap = (gap - 1) / 3;
+		k = 0;
+		while (array && k < size)
+		{
+			if (k > 0)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+			print_number(array[k]);
+			k++;
+		}
+		_putchar('\n');
 	}
 }
 
