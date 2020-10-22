@@ -53,7 +53,7 @@ void countingSort(int array[], int size, int place)
 {
 	int *output;
 	int *count;
-	int max, i, k;
+	int max, i;
 
 	max = (array[0] / place) % 10;
 	output = (int *) malloc(sizeof(array[0]) * size + 1);
