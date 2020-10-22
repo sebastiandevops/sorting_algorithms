@@ -77,18 +77,6 @@ void countingSort(int array[], int size, int place)
 	}
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
-	k = 0;
-	while (array && k < size)
-	{
-		if (k > 0)
-		{
-			_putchar(',');
-			_putchar(' ');
-		}
-		print_number(array[k]);
-		k++;
-	}
-	_putchar('\n');
 	free(count);
 	free(output);
 }
