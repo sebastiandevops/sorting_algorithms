@@ -28,9 +28,11 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void swap(int *xp, int *yp);
 void quick_sort(int *array, size_t size);
-void quickSort(int array[], int low, int high);
+void quickSort(int array[], int low, int high, int size);
 int partition(int array[], int low, int high);
 void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+void heapify(int arr[], int n, int i);
 
 #endif /* SORT_H */
