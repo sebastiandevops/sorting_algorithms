@@ -62,23 +62,11 @@ int partition(int array[], int low, int high)
  */
 void quickSort(int array[], int low, int high, int size)
 {
-	int pi, k;
+	int pi;
 
 	if (low < high)
 	{
 		pi = partition(array, low, high);
-		k = 0;
-		while (array && k < size)
-		{
-			if (k > 0)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			print_number(array[k]);
-			k++;
-		}
-		_putchar('\n');
 		quickSort(array, low, pi - 1, size);
 		quickSort(array, pi + 1, high, size);
 	}
