@@ -25,8 +25,6 @@ void heap_sort(int *array, size_t size)
 	while ((int)i >= 0)
 	{
 		swap(&array[0], &array[i]);
-		heapify(array, i, 0);
-		i--;
 		k = 0;
 		while (array && k < size)
 		{
@@ -39,6 +37,8 @@ void heap_sort(int *array, size_t size)
 			k++;
 		}
 		_putchar('\n');
+		heapify(array, i, 0);
+		i--;
 	}
 }
 
