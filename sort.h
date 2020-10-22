@@ -37,5 +37,6 @@ void heapify(int arr[], int n, int i);
 void radix_sort(int *array, size_t size);
 int getMax(int array[], int n);
 void countingSort(int array[], int size, int place);
+void quick_sort_hoare(int *array, size_t size);
 
 #endif /* SORT_H */
