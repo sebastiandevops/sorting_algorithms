@@ -34,5 +34,8 @@ void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void heapify(int arr[], int n, int i);
+void radix_sort(int *array, size_t size);
+int getMax(int array[], int n);
+void countingSort(int array[], int size, int place);
 
 #endif /* SORT_H */
